@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    gap: 20px;
+    flex-direction: column;
+    background-color: #111b21;
+}
+
+.login_input {
+    border-radius: 7px;
+    max-width: 500px;
+    padding: 9px 12px;
+    background-color: #2a3942;
+    color: #fff;
+    font-size: 12px;
+    width: 100%;
+}
+
+.login_input::placeholder {
+    color: #fff;
+    opacity: 0.6;
+}
+
+.container button {
+    background-color: #2a3942;
+    color: #FFF;
+    padding: 10px 20px;
+    border-radius: 7px;
+}

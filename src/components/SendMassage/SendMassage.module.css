@@ -1,0 +1,30 @@
+.sendMassage_form {
+    width: 100%;
+    max-width: 940px;
+    display: flex;
+    gap: 30px;
+}
+
+.sendMassage_input {
+    border-radius: 7px;
+    width: 100%;
+    padding: 9px 12px;
+    background-color: #2a3942;
+    color: #fff;
+    font-size: 12px;
+}
+
+.sendMassage_input::placeholder {
+    color: #fff;
+    opacity: 0.6;
+}
+
+.sendMassage_container {
+    display: flex;
+    background-color: #202c33;
+    width: 100%;
+    align-items: center;
+    padding: 10px 30px;
+    max-height: 62px;
+    gap: 30px;
+}
