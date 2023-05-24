@@ -1,0 +1,20 @@
+{
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "eslint.validate": [
+        "javascript"
+    ],
+    "cSpell.words": [
+        "ekdr",
+        "hocs",
+        "linebreak",
+        "persistor",
+        "plusplus",
+        "ppled",
+        "reduxjs",
+        "signin",
+        "testid",
+        "todolist"
+    ]
+}

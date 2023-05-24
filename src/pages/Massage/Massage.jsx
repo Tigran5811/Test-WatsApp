@@ -4,11 +4,12 @@ import { MassageContainer } from "../../components/MassageContainer/MassageConta
 import { SendMassage } from "../../components/SendMassage/SendMassage";
 import { ChatListHeader } from '../../components/ChatListHeader/ChatListHeader';
 import { Contact } from '../../components/Contact/Contact';
-
-
-
+import { getMassageSelector } from '../../redux/selectors/massage';
+import { useSelector } from 'react-redux';
+import { NotFound } from '../../components/NotFound/NotFound';
 
 export const Massage = () => {
+    const allMassage = useSelector(getMassageSelector)
     return (
         <div className={styles.container}>
             <div className={styles.box}>
@@ -19,8 +20,11 @@ export const Massage = () => {
                     </div>
                     <div className={styles.chat}>
                         <ConversationHeader />
-                        <MassageContainer />
-                        <SendMassage />
+                        {!allMassage ? <NotFound /> : <>
+                            <MassageContainer />
+                            <SendMassage />
+                        </>
+                        }
                     </div>
                 </div>
             </div>

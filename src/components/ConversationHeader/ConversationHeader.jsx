@@ -46,7 +46,7 @@ export const ConversationHeader = () => {
                 <form className={styles.add_number} onSubmit={(event) => {
                     onSubmit(event);
                 }}>
-                    <input value={chatId} placeholder="Number" onChange={onChangeNumber} type="text" />
+                    <input value={chatId} placeholder="Phone number" onChange={onChangeNumber} type="text" />
                     <button disabled={!chatId} type='submit'>Add Number</button>
                 </form>
                 <button onClick={onClick}>Log <br /> Out</button>

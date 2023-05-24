@@ -8,26 +8,29 @@ export const getMassage = () => async (dispatch, getState) => {
     if (data !== null) {
       const { body, receiptId } = data
       if (body?.messageData?.textMessageData?.textMessage) {
+        const file = await deleteNotification(receiptId)
         dispatch({ type: GET_MASSAGE, stateMassage: massage[body.senderData.chatId], chatId: body.senderData.chatId, person: "incoming", massage: body.messageData.textMessageData.textMessage });
-        const file = await deleteNotification(receiptId)
         if (file) {
           return dispatch(getMassage())
         }
+        return
       } else if (body?.messageData?.extendedTextMessageData?.text) {
-        dispatch({ type: GET_MASSAGE, stateMassage: massage[body.senderData.chatId], chatId: body.senderData.chatId, person: "outgoing", massage: body.messageData.extendedTextMessageData.text });
         const file = await deleteNotification(receiptId)
+        dispatch({ type: GET_MASSAGE, stateMassage: massage[body.senderData.chatId], chatId: body.senderData.chatId, person: "outgoing", massage: body.messageData.extendedTextMessageData.text });
         if (file) {
           return dispatch(getMassage())
         }
+        return
       } else {
         const file = await deleteNotification(receiptId)
         if (file) {
           return dispatch(getMassage())
         }
+        return
       }
 
     }
-
+    return
   } catch (error) {
     console.log(error)
   }
@@ -36,7 +39,7 @@ export const getMassage = () => async (dispatch, getState) => {
 export const createMassage = (massage) => async (dispatch) => {
   try {
     const chatId = localStorage.getItem('chatId')
-    
+
     const data = JSON.stringify({ chatId: chatId, message: massage, })
     await postNotification(data)
     dispatch(getMassage())

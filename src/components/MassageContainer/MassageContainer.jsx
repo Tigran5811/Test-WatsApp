@@ -3,7 +3,6 @@ import styles from './MassageContainer.module.css'
 import { getMassageSelector } from '../../redux/selectors/massage'
 import { getMassage } from '../../redux/actions/massage'
 import { useEffect, useRef } from 'react'
-import { NotFound } from '../NotFound/NotFound'
 
 export const MassageContainer = () => {
     const dispatch = useDispatch()
@@ -26,9 +25,8 @@ export const MassageContainer = () => {
         <div className={styles.massage}>
             <div className={styles.massage_container}>
                 <div className={styles.wrap}>
-                    {!allMassage ? <NotFound /> : allMassage?.map((item, i) => {
+                    {allMassage?.map((item, i) => {
                         if (item.person === "outgoing") {
-
                             return <div className={styles.right} key={i}><p  >{item.massage}</p></div>
                         }
                         return <div className={styles.left} key={i}><p >{item.massage}</p></div>
